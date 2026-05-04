@@ -28,3 +28,10 @@ The game follows a simple yet complete loop:
   Purpose of the Project
 
 The goal wasn't to create a commercial product, but to see how different systems (Combat, UI, Save/Load, Movement) communicate with each other. It represents the "final boss" of my current learning stage before moving on to more complex architectures.
+Repository Structure & Purpose
+
+Note: This repository is dedicated to showcasing the source code and game logic.
+
+    To keep the repository lightweight and focused on programming patterns, compiled build files (.exe), large asset packages, and library folders are excluded.
+
+    The core of the project can be found in the Scripts/ folder, featuring the C# implementation of the mechanics described above.
