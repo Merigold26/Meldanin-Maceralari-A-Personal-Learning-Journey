@@ -1,0 +1,47 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class KameraKontrolcüsü : MonoBehaviour
+{
+    public static KameraKontrolcüsü instance;
+    private Transform target;
+    public BoxCollider2D areaBox;
+    private float halfWidth,halfHeight;
+    private Camera Cam;
+    private void Awake()
+    {
+        instance = this;
+    }
+    // Start is called before the first frame update
+    void Start()
+    {
+        target = OyuncuHareketi.instance.transform;
+        Cam = GetComponent<Camera>();
+
+        halfHeight = Cam.orthographicSize;
+        halfWidth = Cam.orthographicSize*Cam.aspect;
+
+    }
+
+    // Update is called once per frame
+    void LateUpdate()
+    {
+        
+        transform.position = new Vector3(target.position.x,target.position.y,transform.position.z);
+
+       if (areaBox != null )
+        {
+
+            transform.position = new Vector3(Mathf.Clamp(transform.position.x, areaBox.bounds.min.x + halfWidth, areaBox.bounds.max.x - halfWidth),
+                Mathf.Clamp(transform.position.y, areaBox.bounds.min.y + halfHeight, areaBox.bounds.max.y - halfHeight), transform.position.z);
+
+
+        }
+
+       
+    
+    
+    }
+}
+ 
